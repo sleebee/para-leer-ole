@@ -1,0 +1,43 @@
+{
+  "name": "Para leer Olé",
+  "version": "1.0",
+  "description": "Extensión para poder leer las notas del Olé sin registrarse",
+  "permissions": [
+    "tabs",
+    "activeTab", 
+    "declarativeContent", 
+    "storage",
+    "http://*.ole.com.ar/",
+    "https://*.ole.com.ar/"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": {
+      "16": "images/futbol16.png",
+      "32": "images/futbol32.png",
+      "48": "images/futbol48.png",
+      "128": "images/futbol128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": [
+      "http://*.ole.com.ar/*",
+      "https://*.ole.com.ar/*"
+    ],
+    "js": [
+      "para_leer_ole_content.js"
+    ],
+    "run_at": "document_end"
+  }],
+  "icons": {
+    "16": "images/futbol16.png",
+    "32": "images/futbol32.png",
+    "48": "images/futbol48.png",
+    "128": "images/futbol128.png"
+  },
+  "manifest_version": 2
+}
